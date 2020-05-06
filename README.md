@@ -1,5 +1,5 @@
 # Desenvolvimento Web
-## Laboratório de Robótica e Computação
+## Laboratório de Robótica e Computação Aplicada
 
 1.  **Requisitos** 
     - Node.js
