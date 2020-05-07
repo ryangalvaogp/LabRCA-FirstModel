@@ -7,7 +7,7 @@ module.exports = {
         const projetos = await connection('projetos')
         .where ('Responsavel_id', Responsavel_id)
         .select ('*');
-    
+        
     return response.json(projetos);
     },
     

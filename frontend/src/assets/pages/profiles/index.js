@@ -39,6 +39,8 @@ export default function Profiles() {
   const status = localStorage.getItem('status')
   const cpe = sessionStorage.getItem('cpe')
 
+  const test = "Ryan"
+
   const [open, setOpen] = React.useState(false);
   const [openn, setOpenn] = React.useState(false);
   const [Projetos, setProjetos] = useState([]);
@@ -46,15 +48,16 @@ export default function Profiles() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [Titulo, setTitulo] = useState('');
   const [Descricao, setDescricao] = useState('');
-  const [Data_de_criacao, setData_de_criacao] = useState( Date.now());
-  const [Local_do_evento, setLocal_do_evento] = useState('');
+  const [Data_de_criacao, setData_de_criacao] = useState(Date.now());
+  const [Local_do_evento, setLocal_do_evento] = useState('Auditório IFPA');
   const [Data_do_evento, setData_do_evento] = useState(Date.now());
-  const [Hora_do_evento, setHora_do_evento] = useState();
+  const [Hora_do_evento, setHora_do_evento] = useState('');
+
 
   const nameLogin = localStorage.getItem('Name');
   //const emailLogin = localStorage.getItem('Email');
   const id = localStorage.getItem('id');
-  const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
+  //const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
 
 
   //Funções para Atualizações      
@@ -150,7 +153,11 @@ export default function Profiles() {
 
 
     async function Ceventos(e) {
+
+
       e.preventDefault();
+
+
       try {
         await api.post('Eventos', {
           Titulo,
@@ -254,7 +261,7 @@ export default function Profiles() {
     const handleDateChange = (date) => {
       setData_de_criacao(date);
     };
-    const DefineDataE = (date)=>{
+    const DefineDataE = (date) => {
       setData_do_evento(date)
     }
     //Funções para REDIRECIONAMENTO
@@ -275,7 +282,7 @@ export default function Profiles() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                 
+
                 <MenuItem onClick={config}><FiSettings color="GREEN" />  Configurações </MenuItem>
                 <MenuItem onClick={handleLogout}> <FiLogOut color="Red" />  Logout</MenuItem>
               </Menu>
@@ -358,25 +365,25 @@ export default function Profiles() {
                       onChange={e => setDescricao(e.target.value)}
                     />
 
-<MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <Grid container justify="space-around">
-        
-        <KeyboardDatePicker
-          margin="normal"
-          id="date-picker-dialog"
-          label="Data da Criação"
-          format="dd/MM/yyyy"
-          value={Data_de_criacao}
-          onChange={handleDateChange}
-          KeyboardButtonProps={{
-            'aria-label': 'change date',
-          }}
-        />
+                    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                      <Grid container justify="space-around">
 
-      </Grid>
-    </MuiPickersUtilsProvider> 
+                        <KeyboardDatePicker
+                          margin="normal"
+                          id="date-picker-dialog"
+                          label="Data da Criação"
+                          format="dd/MM/yyyy"
+                          value={Data_de_criacao}
+                          onChange={handleDateChange}
+                          KeyboardButtonProps={{
+                            'aria-label': 'change date',
+                          }}
+                        />
 
-                    
+                      </Grid>
+                    </MuiPickersUtilsProvider>
+
+
                   </DialogContent>
                   <DialogActions>
                     <Button onClick={handleClosee} color="primary">
@@ -418,8 +425,8 @@ export default function Profiles() {
                   <tbody >
 
                     {Projetos.map(Projetos => (
-                      <tr>
-                        <th scope="row">1</th>
+                      <tr id="tr">
+                        <th scope="row">{Projetos.id}</th>
                         <td>{Projetos.Titulo}</td>
                         <td>{Projetos.Descricao}</td>
                         <td> {moment(Projetos.Data_de_criacao).format('DD/MM/YYYY')} </td>
@@ -473,6 +480,7 @@ export default function Profiles() {
                       label="Título"
                       type="email"
                       fullWidth
+                      required
                       value={Titulo}
                       onChange={e => setTitulo(e.target.value)}
                     />
@@ -482,6 +490,7 @@ export default function Profiles() {
                       label="Descrição"
                       type="text"
                       fullWidth
+                      required
                       value={Descricao}
                       onChange={e => setDescricao(e.target.value)}
                     />
@@ -493,44 +502,47 @@ export default function Profiles() {
                       value={Local_do_evento}
                       onChange={e => setLocal_do_evento(e.target.value)}
                       fullWidth
+                      required
                     />
 
-<MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <Grid container justify="space-around">
-        
-        <KeyboardDatePicker
-        fullWidth
-          margin="normal"
-          id="date-picker-dialog"
-          label="Data do Evento"
-          format="dd/MM/yyyy"
-          value={Data_do_evento}
-          onChange={DefineDataE}
-          KeyboardButtonProps={{
-            'aria-label': 'change date',
-          }}
-        />
+                    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                      <Grid container justify="space-around">
+
+                        <KeyboardDatePicker
+                          fullWidth
+                          required
+                          margin="normal"
+                          id="date-picker-dialog"
+                          label="Data do Evento"
+                          format="dd/MM/yyyy"
+                          value={Data_do_evento}
+                          onChange={DefineDataE}
+                          KeyboardButtonProps={{
+                            'aria-label': 'change date',
+                          }}
+                        />
 
 
-         <TextField
-                      margin="nomral"
-                      id="time"
-                      label=""
-                      type="Time"
-                      value={Hora_do_evento}
-                      onChange={e => setHora_do_evento(e.target.value)}
-                      
-                    />
-      </Grid>
-      
-    </MuiPickersUtilsProvider> 
+                        <TextField
+                          margin="nomral"
+                          id="time"
+                          required
+                          label=""
+                          type="Time"
+                          value={Hora_do_evento}
+                          onChange={e => setHora_do_evento(e.target.value)}
 
-    
+                        />
+                      </Grid>
 
+                    </MuiPickersUtilsProvider>
 
 
 
-                   
+
+
+
+
                   </DialogContent>
                   <DialogActions>
                     <Button onClick={handleCloseee} color="primary">

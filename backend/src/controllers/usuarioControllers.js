@@ -6,16 +6,28 @@ module.exports = {
         const {id, name, email, celular, funcao} = request.body;
         
 
-
-        await connection('usuario').insert({
-                id,
-                name,
-                email,
-                celular,
-                funcao,
-            })
-        return response.json({Status: "Cadastrado com sucesso"});
+                try{
+                    await connection('usuario').insert({
+                        id,
+                        name,
+                        email,
+                        celular,
+                        funcao,
+                    })
+                    return response.json({Status: "Cadastrado com sucesso"});
         
+                }catch(err) {
+                    if(err.errno===1062){
+                        return response.json({Status: "Usuário já existente", err: err.stack});
+        
+                    }else{
+                        return response.json({Status: "Erro não encontrado"});
+        
+                    }
+                    
+        
+                }
+                
     },
 
     async index (request, response ){

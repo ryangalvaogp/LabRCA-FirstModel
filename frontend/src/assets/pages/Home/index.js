@@ -2,14 +2,26 @@ import React from 'react';
 import {FiLogIn, FiLogOut, FiUser, FiHome, FiInstagram, FiFacebook, FiDownload, FiUserPlus} from 'react-icons/fi';
 import {Link, useHistory } from 'react-router-dom';
 
+
+
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
 import './styles.css'
 
 
+
+import {Carousel} from 'react-bootstrap'
+
 //import '../logon/styles.css'
 export default function Homes (){
+
+ 
+
+
+
+
+
   const [anchorEl, setAnchorEl] = React.useState(null);
     const nameLogin = localStorage.getItem('Name');
     const status = localStorage.getItem('status')
@@ -88,9 +100,10 @@ export default function Homes (){
                 <div class="container py-5">
                   <div class="row">
                     <div class="mx-auto col-lg-11 col-md-10" >
-                      <h1 class="mb-4 display-3" >Laboratório de Informática</h1>
+                      <h1 class="mb-4 display-3" >Laboratório de Robótica e Computação Aplicada</h1>
                       <h1 class="mb-4 display-4" >IFPA - Campus Paragominas</h1>
-                      <Link to="#" class="btn btn-lg btn-primary mx-1">Take me there</Link> <Link class="btn btn-lg btn-primary mx-1" to="#">Let's Go</Link>
+                     <Link  to="#P" class="btn btn-lg btn-primary mx-1"> Veja mais</Link> 
+                     
                     </div>
                   </div>
                 </div>
@@ -118,6 +131,66 @@ export default function Homes (){
                   </div>
                 </div>
               </div>
+<div class="container">
+<div class="row ">
+
+<div class="mx-auto col-lg-11">
+
+<Carousel 
+id="P" 
+class="container VH-100"
+fade="true"
+keyboard
+pause="hover"
+interval="6000">
+  <Carousel.Item>
+    <img
+      className="d-block w-100"
+      src="https://cronos-media.sesisenaisp.org.br//api/media/1-0/files?img=img_65_180122_0d560bb7-79b9-499d-a8be-eebacb130705_o.jpg"
+      alt="First slide"
+    />
+    <Carousel.Caption>
+      <h3>First slide label</h3>
+      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+  <Carousel.Item>
+    <img
+      className="d-block w-100"
+      src="https://s2.glbimg.com/CbYiBI65JJTi6fV2MXQCjUoZoPM=/0x0:1000x667/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2018/k/6/xBFRblQaaM6xXZKv6C5g/foto-15-rob-otica-foto-jefferson-peixoto-coperphoto-sistema-fieb-3.jpg"
+      alt="Third slide"
+    />
+
+    <Carousel.Caption>
+      <h3>Second slide label</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+  <Carousel.Item>
+    <img
+      className="d-block w-100"
+      src="https://codigofonte.com.br/wp-content/uploads/2018/08/source-code.jpg"
+      alt="Third slide"
+    />
+
+    <Carousel.Caption>
+      <h3>Third slide label</h3>
+      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+</Carousel>
+
+
+</div>
+
+</div>
+
+</div>
+
+              
+
+
+
               <div class="py-3  vh-25 " >
                 <div class="container">
                   <div class="row">
@@ -209,6 +282,12 @@ export default function Homes (){
                   </div>
                 </div>
               </div>
+
+
+
+
+
+
               <div class="py-3 vh-25">
                 <div class="container">
                   <div class="row">
