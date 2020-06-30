@@ -15,7 +15,7 @@
 
 3. **Dependências**
 
-3.1. **Backend**
+3.1. ### Backend
 ---
 - Cors: 2.8.5
 - Express: ^4.17.1
@@ -26,7 +26,7 @@
 
     ---
     
-3.2. **Frontend**
+3.2. ### Frontend
 ---
 - Material-UI:
 - @material-ui/core: ^4.9.12
@@ -51,7 +51,7 @@
 
     ---
     
-3.3. **Mobile**
+3.3. ### Mobile
 ---
 - @react-native-community/masked-view: 0.1.6
 - @react-navigation/native: ^5.5.1
