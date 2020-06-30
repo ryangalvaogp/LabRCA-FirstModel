@@ -16,7 +16,7 @@
 3. **Dependências**
 
  ***Backend***
----
+ 
 - Cors: 2.8.5
 - Express: ^4.17.1
 - Knex: 0.20.14
@@ -24,10 +24,10 @@
 - Mysql: 2.18.1
 - Nodemon: 2.0.3
 
-    ---
+    
     
 3.2. ### Frontend
----
+
 - Material-UI:
 - @material-ui/core: ^4.9.12
 - @material-ui/pickers: ^3.2.10
@@ -49,10 +49,10 @@
 - react-scripts: 3.4.1
 - react-swipeable-views: ^0.13.9
 
-    ---
+    
     
 3.3. ### Mobile
----
+
 - @react-native-community/masked-view: 0.1.6
 - @react-navigation/native: ^5.5.1
 - @react-navigation/stack: ^5.5.1
