@@ -292,7 +292,7 @@ export default function Profiles() {
             <div class="collapse navbar-collapse" id="navbar12">
               <Link class="navbar-brand d-none d-md-block" to="#">
                 <i class="fa d-inline fa-lg fa-circle"></i>
-                <b color="Green"> BRAND</b>
+                <b color="Green"> LABINF</b>
               </Link>
               <ul class="navbar-nav mx-auto">
                 <li class="nav-item"> <Link class="nav-link" to="#">Download</Link> </li>

@@ -1,6 +1,6 @@
 const connection = require('../database/conection')
 const crypto = require ('crypto')
-
+const dataAt = require ('./config/dataAt')
 
 module.exports = {
 
@@ -23,8 +23,14 @@ async create (request, response){
 return response.json({id})
 },
 async index (request, response ){
-    const eventos = await connection('eventos').select('*');
-
+    const [count] = await connection ('eventos').count();
+    const eventos = await connection('eventos')
+    .join('usuario', 'usuario.id', '=', 'eventos.Responsavel_id')
+    .select('eventos.*', 'usuario.name', 'usuario.email');
+    //.select('*');
+   
+   
+    response.header('X-Total-Count', count['count(*)'])
     return response.json(eventos);
 
 
@@ -50,12 +56,9 @@ async delete (request, response){
     
     async createimg (req, res){
        
-        const CreatedAt =  data.getFullYear()+'-'+
-                        (data.getMonth()+1)+'-'+
-                        data.getDate()+' '+
-                        data.getHours()+':'+
-                        data.getMinutes()+':'+
-                        data.getSeconds()
+
+    
+        const CreatedAt =  dataAt()
         
         const Name = req.file.originalname;
         const Size = req.file.size;
@@ -65,7 +68,7 @@ async delete (request, response){
         const Eventoid = req.body.Eventoid;
         const Projetoid = req.body.Projetoid; 
         
-        await connect('imagens').insert({
+         await connect('imagens').insert({
                 id,
                 Name,
                 Size,

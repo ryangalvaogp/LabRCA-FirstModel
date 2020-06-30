@@ -6,7 +6,7 @@ module.exports = {
 async create (request, response){
 
     const {Titulo, Descricao, Data_de_criacao} = request.body;
-
+    
     const id = crypto.randomBytes(4).toString('HEX');
     const Responsavel_id=request.headers.authorization;
    
@@ -19,9 +19,18 @@ async create (request, response){
     });
 return response.json({id})
 },
-async index (request, response ){
-    const projetos = await connection('projetos').select('*');
 
+async index (request, response ){
+    const { page = 1} = request.query 
+    const [count] = await connection ('projetos').count();
+    
+    const projetos = await connection('projetos')
+    .join('usuario', 'usuario.id', '=', 'projetos.Responsavel_id')
+    //.limit(5)
+   // .offset((page - 1)*5)
+    .select('projetos.*', 'usuario.name', 'usuario.email');
+    //.select('*')
+    response.header('X-Total-Count', count['count(*)'])
     return response.json(projetos);
 
 

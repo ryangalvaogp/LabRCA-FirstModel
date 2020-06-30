@@ -12,21 +12,31 @@ import Hidden from '@material-ui/core/Hidden';
 import withWidth from '@material-ui/core/withWidth';
 import Typography from '@material-ui/core/Typography';
 
+
+
+
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+
+
+
+
 import './styles.css'
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+    maxWidth: 250,
+    flexGrow:2,
   },
-  container: {
+ /** */ container: {
     display: 'flex',
     flexWrap: 'wrap',
   },
-  paper: {
-    padding: theme.spacing(3),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    flex: '1 0 auto',
-    margin: theme.spacing(6),
+  media: {
+    height: 140,
   },
 }));
 
@@ -92,56 +102,49 @@ export default function Projetos(props){
           <h1>Listar os projetos abaixo</h1>
         </div>
       </div>
-      <div class="row justify-content-center">
+      <div>
+          
       
 
 
-      <div className={classes.root}>
+
+
+     
       {Projetos.map(Projetos=>(
- <div className={classes.root}>
- <Typography variant="subtitle1">Current width: {width}</Typography>
- <div className={classes.container}>
-   <Hidden xsDown>
-     <Paper className={classes.paper}>
-     
-  <div class="col-4 p-3 d-flex align-items-center">
-     <img class="img-fluid " src="https://static.pingendo.com/img-placeholder-1.svg" alt="" /> 
-     
-     <div class="col-8 align-items-center">
-    <p class="lead mb-1"> <h3> {Projetos.Titulo} - <small class="text-muted">{Projetos.Data_de_criacao}</small>  </h3> </p>
-    <p class="mb-0">{Projetos.Descricao}</p>
-  </div>
+        <div className={classes.container}>
+ <Card className={classes.root}>
+ <CardActionArea>
+   <CardMedia
+     className={classes.media}
+     image="/static/images/cards/contemplative-reptile.jpg"
+     title="Contemplative Reptile"
+   />
+   <CardContent>
+     <Typography gutterBottom variant="h5" component="h2">
+       {Projetos.Titulo} - <small class="text-muted">{Projetos.Data_de_criacao}</small>
+     </Typography>
+     <Typography variant="body2" color="textSecondary" component="p">
+     {Projetos.Descricao}
+     </Typography>
+   </CardContent>
+ </CardActionArea>
+ <CardActions>
+   <Button size="small" color="primary">
+     Share
+   </Button>
+   <Button size="small" color="primary">
+     Learn More
+   </Button>
+ </CardActions>
+</Card>
+
 </div>
- 
-    
-  
-
-
-     </Paper>
-   </Hidden>
-  
- </div>
- </div>
-
-
 ))}
      
      
-    </div>
+  
 
-        {Projetos.map(Projetos=>(
-
-<div class="p-4 col-lg-9">
-<div class="row">
-  <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-1.svg" alt="" /> </div>
-  <div class="col-9">
-    <p class="lead mb-1"> <h3> {Projetos.Titulo} - <small class="text-muted">{Projetos.Data_de_criacao}</small>  </h3> </p>
-    <p class="mb-0">{Projetos.Descricao}</p>
-  </div>
-</div>
-</div>
-
-        ))}
+        
 
         
         
