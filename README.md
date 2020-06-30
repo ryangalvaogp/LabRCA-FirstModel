@@ -1,18 +1,22 @@
 # Desenvolvimento Web
 ## Laboratório de Robótica e Computação Aplicada
 
-1.  **Requisitos** 
+1.  **Requisitos**
+---
     - Node.js: 12.18.1 LTS
     - Yarn: 1.22.4
     
 2. **Instalação**
+---
    - [ ] Certifique-se de que os requisitos estão instalados corretamente, e que tenha internet acessível. 
    - [ ] Clone ou baixe os arquivos do repositório e salve-os em seu local de desenvolvimento na área de trabalho. 
    - [ ] Inicie o terminal em cada uma das pastas de desenvolvimento (Backend, Frontend e Mobile) e dê um ```bash npm i ``` em cada uma. Esse comando irá instalar as dependências listadas abaixo. 
    - [ ] Agora, basta em cada uma das pastas dedesenvolvimento, executar ```bash npm start ``` para iniciar os servidores backend, frontend e mobile(expo), respectivamente. 
 
 3. **Dependências**
+---
 3.1. ***Backend***
+---
 - Cors: 2.8.5
 - Express: ^4.17.1
 - Knex: 0.20.14
@@ -23,6 +27,7 @@
     ---
     
 3.2. ***Frontend***
+---
 - Material-UI:
 - @material-ui/core: ^4.9.12
 - @material-ui/pickers: ^3.2.10
@@ -47,6 +52,7 @@
     ---
     
 3.3. ***Mobile***
+---
 - @react-native-community/masked-view: 0.1.6
 - @react-navigation/native: ^5.5.1
 - @react-navigation/stack: ^5.5.1
