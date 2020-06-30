@@ -12,15 +12,15 @@
    - [ ] Agora, basta em cada uma das pastas dedesenvolvimento, executar ```bash npm start ``` para iniciar os servidores backend, frontend e mobile(expo), respectivamente. 
 
 3. **Dependências**
-1.1. **Backend**
-- Cors: 2.8.5
-- Express: ^4.17.1
-- Knex: 0.20.14
-- Multer: 1.4.2
-- Mysql: 2.18.1
-- Nodemon: 2.0.3
+     ** 1.1. Backend**
+    - Cors: 2.8.5
+    - Express: ^4.17.1
+    - Knex: 0.20.14
+    - Multer: 1.4.2
+    - Mysql: 2.18.1
+    - Nodemon: 2.0.3
     ---
-1.2. **Frontend**
+ ** 1.2. Frontend**
 - Material-UI:
 - @material-ui/core: ^4.9.12
 - @material-ui/pickers: ^3.2.10
@@ -42,7 +42,7 @@
 - react-scripts: 3.4.1
 - react-swipeable-views": "^0.13.9
     ---
-1.3. **Mobile**
+** 1.3. Mobile**
 - @react-native-community/masked-view: 0.1.6
 - @react-navigation/native: ^5.5.1
 - @react-navigation/stack: ^5.5.1
